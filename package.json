@@ -12,7 +12,9 @@
     "file-upload",
     "now",
     "zeit",
-    "now.sh"
+    "now.sh",
+    "storage",
+    "file-storage"
   ],
   "author": {
     "name": "Sergio Daniel Xalambrí",
