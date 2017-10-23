@@ -15,7 +15,7 @@ Then load it inside your app.
 const { upload } = require('now-storage');
 ```
 
-And call the `upload` function with the Now token and the file to upload.
+And call the `upload` function with [the Now token](https://zeit.co/account/tokens) and the file to upload.
 
 ```js
 const { url } = await upload(process.env.NOW_TOKEN, {
@@ -23,6 +23,8 @@ const { url } = await upload(process.env.NOW_TOKEN, {
   content: await readFile('./path/to/a/file')
 });
 ```
+
+The `url` is going to be a string similar to [uploaded-file-terzlspsco.now.sh](https://uploaded-file-terzlspsco.now.sh/).
 
 ### Configuration
 All the deployments are going to have the name `uploaded-file` and the `upload` function is going to retry maximum 3 times to upload the file and another 3 times to create the deployment.
