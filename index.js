@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const retry = require('async-retry');
 
 let defaultConfig = {
-  deploymentName: 'uploaded-file',
+  deploymentName: 'now-storage',
   retry: {
     retries: 3,
   },

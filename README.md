@@ -19,21 +19,21 @@ And call the `upload` function with [the Now token](https://zeit.co/account/toke
 
 ```js
 const { url } = await upload(process.env.NOW_TOKEN, {
-  name: 'file-name',
-  content: await readFile('./path/to/a/file')
+  name: 'my-file.txt',
+  content: 'This is a file uploaded with now-storage.'
 });
 ```
 
-The `url` is going to be a string similar to [uploaded-file-terzlspsco.now.sh](https://uploaded-file-terzlspsco.now.sh/).
+The `url` is going to be a string similar to [http://now-storage-bmjowtcani.now.sh/](http://now-storage-bmjowtcani.now.sh/).
 
 ### Configuration
-All the deployments are going to have the name `uploaded-file` and the `upload` function is going to retry maximum 3 times to upload the file and another 3 times to create the deployment.
+All the deployments are going to have the name `now-storage` and the `upload` function is going to retry maximum 3 times to upload the file and another 3 times to create the deployment.
 
 That could be configured passing a third argument to the `upload method` with an object using the following format.
 
 ```js
 const config = {
-  deploymentName: 'uploaded-file',
+  deploymentName: 'now-storage',
   retry: {
     retries: 3
   }
