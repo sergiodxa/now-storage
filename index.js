@@ -5,8 +5,8 @@ const retry = require('async-retry');
 let defaultConfig = {
   deploymentName: 'now-storage',
   retry: {
-    retries: 3,
-  },
+    retries: 3
+  }
 };
 
 async function upload(token, file, config = defaultConfig) {
@@ -23,7 +23,7 @@ async function upload(token, file, config = defaultConfig) {
     throw new ReferenceError('You must provide a file object.');
   }
   if (typeof file !== 'object') {
-    throw new TypeError('The file provided must be an object.')
+    throw new TypeError('The file provided must be an object.');
   }
   // validate file.name
   if (!file.name) {
@@ -43,24 +43,28 @@ async function upload(token, file, config = defaultConfig) {
   const sha = shasum.digest('hex');
 
   try {
-    await retry(async () => {
-      const response = await fetch('https://api.zeit.co/v2/now/files', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/octet-stream',
-          'Content-Length': file.content.length,
-          'x-now-digest': sha,
-          'x-now-size': file.content.length
-        },
-        body: file.content
-      });
+    await retry(
+      async () => {
+        const response = await fetch('https://api.zeit.co/v2/now/files', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/octet-stream',
+            'Content-Length': file.content.length,
+            'x-now-digest': sha,
+            'x-now-size': file.content.length
+          },
+          body: file.content
+        });
 
-      if (!response.ok) {
-        const body = await response.json();
-        throw new Error(body.error.message);
-      }
-    }, { ...defaultConfig.retry, ...config.retry });
+        if (!response.ok) {
+          const body = await response.json();
+          console.error(body.error.message);
+          throw new Error(body.error.message);
+        }
+      },
+      { ...defaultConfig.retry, ...config.retry }
+    );
   } catch (error) {
     if (process.env.NODE_ENV !== 'production') {
       console.error(error);
@@ -69,26 +73,34 @@ async function upload(token, file, config = defaultConfig) {
   }
 
   try {
-    return await retry(async () => {
-      const response = await fetch('https://api.zeit.co/v2/now/deployments', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: config.deploymentName,
-          deploymentType: 'static',
-          files: [{ file: file.name, sha, mode: 33206 }]
-        })
-      })
+    return await retry(
+      async () => {
+        const response = await fetch('https://api.zeit.co/v2/now/deployments', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: config.deploymentName,
+            deploymentType: 'STATIC',
+            files: [{ file: file.name, sha, size: file.content.length }]
+          })
+        });
 
-      const body = await response.json();
+        const body = await response.json();
 
-      if (!response.ok) throw new Error(body.error.message);
+        if (!response.ok) {
+          body.error.warnings.forEach(warning =>
+            console.warn(`Warning: ${warning.reason}\n${warning.sha}`)
+          );
+          throw new Error(body.error.message);
+        }
 
-      return body;
-    }, { ...defaultConfig.retry, ...config.retry });
+        return body;
+      },
+      { ...defaultConfig.retry, ...config.retry }
+    );
   } catch (error) {
     if (process.env.NODE_ENV !== 'production') {
       console.error(error);
