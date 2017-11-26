@@ -4,7 +4,7 @@
   "description": "Use Now static deployments to upload and store files.",
   "main": "index.js",
   "scripts": {
-    "test": "NOW_TOKEN=$TOKEN jest",
+    "test": "NOW_TOKEN=$TOKEN jest --ci",
     "test:w": "npm run test -- -w",
     "clean": "npm run clean:user && npm run clean:team",
     "clean:user": "now rm now-storage-test -s -y -t $TOKEN",
