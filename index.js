@@ -4,7 +4,7 @@ const retry = require('async-retry');
 const FILE_URL = 'https://api.zeit.co/v2/now/files';
 const DEPLOY_URL = 'https://api.zeit.co/v2/now/deployments';
 
-let defaultConfig = {
+const defaultConfig = {
   deploymentName: 'now-storage',
   retry: {
     retries: 3
