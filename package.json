@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NOW_TOKEN=$TOKEN jest",
     "test:w": "npm run test -- -w",
-    "clean": "npm run clean && npm run clean:team",
+    "clean": "npm run clean:user && npm run clean:team",
     "clean:user": "now rm now-storage-test -s -y -t $TOKEN",
     "clean:team": "now rm now-storage-test -s -y -T now-storage -t $TOKEN"
   },
