@@ -45,8 +45,12 @@ async function upload(token, file, config = defaultConfig) {
   const sha = shasum.digest('hex');
 
   // check for teamId
-  const fileUrl = config.teamId ? `${FILE_URL}?teamId=${config.teamId}` : FILE_URL
-  const deployUrl = config.teamId ? `${DEPLOY_URL}?teamId=${config.teamId}` : DEPLOY_URL
+  const fileUrl = config.teamId
+    ? `${FILE_URL}?teamId=${config.teamId}`
+    : FILE_URL;
+  const deployUrl = config.teamId
+    ? `${DEPLOY_URL}?teamId=${config.teamId}`
+    : DEPLOY_URL;
 
   try {
     await retry(
