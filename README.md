@@ -41,3 +41,15 @@ const config = {
 ```
 
 That's the default configuration, the `retry` key could receive any configuration from `async-retry`.
+
+To deploy to a team account instead of your personal account add `teamId` to the config.
+
+```js
+const config = {
+  deploymentName: 'now-storage',
+  teamId: 'my-awsm-team',
+  retry: {
+    retries: 3
+  }
+};
+```
