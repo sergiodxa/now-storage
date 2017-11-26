@@ -1,6 +1,8 @@
 const fetch = require('node-fetch');
 const { upload } = require('.');
 
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000
+
 describe('File upload', () => {
   it('should upload a file and get a new URL', async () => {
     const content = 'This is a file uploaded with now-storage.';
