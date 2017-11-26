@@ -1,4 +1,6 @@
 # now-storage
+![build](https://api.travis-ci.org/sergiodxa/now-storage.svg?branch=master)
+
 Use Now static deployments to upload and store files.
 
 ## Usage
