@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NOW_TOKEN=$TOKEN jest --ci",
-    "test:w": "npm run test -- -w",
+    "test:w": "npm run test -- --watch",
     "clean": "npm run clean:user && npm run clean:team",
     "clean:user": "now rm now-storage-test -s -y -t $TOKEN",
     "clean:team": "now rm now-storage-test -s -y -T now-storage -t $TOKEN"
