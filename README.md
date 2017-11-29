@@ -23,13 +23,10 @@ And call the `upload` function with
 [the Now token](https://zeit.co/account/tokens) and the file to upload.
 
 ```js
-const { url } = await upload(
-  process.env.NOW_TOKEN,
-  {
-    name: 'my-file.txt',
-    content: 'This is a file uploaded with now-storage.'
-  }
-);
+const { url } = await upload(process.env.NOW_TOKEN, {
+  name: 'my-file.txt',
+  content: 'This is a file uploaded with now-storage.'
+});
 ```
 
 The `url` is going to be a string similar to
@@ -45,19 +42,15 @@ That could be configured passing a third argument to the `upload method` with an
 object using the following format.
 
 ```js
-await upload(
-  process.env.NOW_TOKEN,
-  {
-    name: 'my-file.txt',
-    content: 'This is a file uploaded with now-storage.'
-  },
-  {
-    deploymentName: 'now-storage',
-    retry: {
-      retries: 3
-    }
+await upload(process.env.NOW_TOKEN, {
+  name: 'my-file.txt',
+  content: 'This is a file uploaded with now-storage.'
+}, {
+  deploymentName: 'now-storage',
+  retry: {
+    retries: 3
   }
-);
+});
 ```
 
 That's the default configuration, the `retry` key could receive any
@@ -67,15 +60,8 @@ To deploy to a team account instead of your personal account add `teamId` to the
 config.
 
 ```js
-await upload(
-  process.env.NOW_TOKEN,
-  {
-    name: 'my-file.txt',
-    content: 'This is a file uploaded with now-storage.'
-  },
-  {
-    deploymentName: 'now-storage',
-    teamId: 'my-awsm-team'
-  }
-);
+await upload(process.env.NOW_TOKEN, {
+  name: 'my-file.txt',
+  content: 'This is a file uploaded with now-storage.'
+}, { teamId: 'my-awsm-team' });
 ```
