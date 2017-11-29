@@ -81,6 +81,14 @@ async function upload(token, file, config = defaultConfig) {
     }
     throw new Error('An error happened while uploading the file.');
   }
+  const fileUrl =
+    config.teamId || config.team
+      ? `${FILE_URL}?teamId=${config.teamId || config.team}`
+      : FILE_URL;
+  const deployUrl =
+    config.teamId || config.team
+      ? `${DEPLOY_URL}?teamId=${config.teamId || config.team}`
+      : DEPLOY_URL;
 
   try {
     return await retry(
