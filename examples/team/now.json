@@ -1,0 +1,6 @@
+{
+  "env": {
+    "NOW_TOKEN": "@now_token",
+    "NOW_TEAM": "@now_team"
+  }
+}
