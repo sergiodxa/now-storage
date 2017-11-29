@@ -1,5 +1,5 @@
 {
-  "name": "now-storage-example-basic",
+  "name": "now-storage-example-fixed-token",
   "main": "index.js",
   "scripts": {
     "start": "node ."
