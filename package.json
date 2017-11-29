@@ -1,6 +1,6 @@
 {
   "name": "now-storage",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Use Now static deployments to upload and store files.",
   "main": "index.js",
   "scripts": {
