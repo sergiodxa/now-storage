@@ -39,6 +39,6 @@
   },
   "devDependencies": {
     "jest": "21.2.1",
-    "now": "9.3.3"
+    "now": "11.2.0"
   }
 }
