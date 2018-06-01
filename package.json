@@ -38,7 +38,7 @@
     "node-fetch": "^1.7.3"
   },
   "devDependencies": {
-    "jest": "^21.2.1",
-    "now": "^9.2.7"
+    "jest": "21.2.1",
+    "now": "9.3.3"
   }
 }
