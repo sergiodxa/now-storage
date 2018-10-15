@@ -8,7 +8,6 @@
     "index.js",
     "index.test.js",
     "package.json",
-    "pretest.js",
     "yarn.lock"
   ],
   "build": {
