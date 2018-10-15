@@ -1,0 +1,11 @@
+{
+  "name": "now-storage-example-multi-files-one-deployment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "now-env": "^1.4.0",
+    "now-storage": "^1.1.0"
+  }
+}

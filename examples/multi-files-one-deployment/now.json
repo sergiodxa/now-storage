@@ -1,0 +1,5 @@
+{
+  "env": {
+    "NOW_TOKEN": "@now_token"
+  }
+}

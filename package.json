@@ -8,7 +8,7 @@
     "test:w": "npm run test -- --watch",
     "clean": "npm run clean:user && npm run clean:team",
     "clean:user": "now rm now-storage-test -s -y -t $NOW_TOKEN",
-    "clean:team": "now rm now-storage-test -s -y -T $NOW_TEAM -t $TOKEN"
+    "clean:team": "now rm now-storage-test -s -y -T $NOW_TEAM -t $NOW_TOKEN"
   },
   "repository": {
     "type": "git",
