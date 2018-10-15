@@ -1,16 +1,19 @@
-# now-storage
-
-[![build](https://api.travis-ci.org/sergiodxa/now-storage.svg?branch=master)](https://travis-ci.org/sergiodxa/now-storage)
+# Now Storage
 
 Use Now static deployments to upload and store files.
 
 ## Usage
 
-Install it:
+Install it with yarn
 
 ```bash
 yarn add now-storage
-# npm i now-storage
+```
+
+Or with npm
+
+```bash
+npm i now-storage
 ```
 
 Then load it inside your app.
@@ -19,8 +22,7 @@ Then load it inside your app.
 const { upload } = require('now-storage');
 ```
 
-And call the `upload` function with
-[the Now token](https://zeit.co/account/tokens) and the file to upload.
+And call the `upload` function with your [the Now token](https://zeit.co/account/tokens) and the file to upload.
 
 ```js
 const { url } = await upload(process.env.NOW_TOKEN, {

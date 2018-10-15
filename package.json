@@ -38,7 +38,12 @@
     "node-fetch": "^2.0.0"
   },
   "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-unicorn": "^6.0.1",
     "jest": "23.1.0",
-    "now": "11.2.0"
+    "now": "11.2.0",
+    "prettier": "^1.14.3"
   }
 }

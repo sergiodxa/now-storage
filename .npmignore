@@ -5,7 +5,8 @@ examples
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 Dockerfile
-index.test.js
 now.json
 renovate.json
 yarn.lock
+
+*.test.js
