@@ -34,7 +34,7 @@ describe('File upload', () => {
         name: 'my-file.json',
         content
       },
-      { deploymentName: 'now-storage-test', teamId: 'now-storage' }
+      { deploymentName: 'now-storage-test', teamId: process.env.NOW_TEAM }
     );
 
     const response = await fetch(`https://${url}`);

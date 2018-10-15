@@ -1,0 +1,20 @@
+{
+  "name": "now-storage",
+  "alias": "now-storage.now.sh",
+  "type": "static",
+  "files": [
+    "lib",
+    "Dockerfile",
+    "index.js",
+    "index.test.js",
+    "package.json",
+    "pretest.js",
+    "yarn.lock"
+  ],
+  "build": {
+    "env": {
+      "NOW_TOKEN": "@ci-token",
+      "NOW_TEAM": "@storage-team"
+    }
+  }
+}

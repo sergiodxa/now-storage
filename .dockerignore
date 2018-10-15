@@ -1,0 +1,6 @@
+*
+!lib
+!index.js
+!index.test.js
+!package.json
+!yarn.lock

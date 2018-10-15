@@ -4,11 +4,11 @@
   "description": "Use Now static deployments to upload and store files.",
   "main": "index.js",
   "scripts": {
-    "test": "NOW_TOKEN=$TOKEN jest --ci",
+    "test": "jest --ci",
     "test:w": "npm run test -- --watch",
     "clean": "npm run clean:user && npm run clean:team",
-    "clean:user": "now rm now-storage-test -s -y -t $TOKEN",
-    "clean:team": "now rm now-storage-test -s -y -T now-storage -t $TOKEN"
+    "clean:user": "now rm now-storage-test -s -y -t $NOW_TOKEN",
+    "clean:team": "now rm now-storage-test -s -y -T $NOW_TEAM -t $TOKEN"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,9 @@
     "file-storage"
   ],
   "author": {
-    "name": "Sergio Daniel Xalambrí",
-    "email": "sergiodxa@gmail.com",
-    "url": "https://sergio.now.sh/"
+    "name": "Sergio Xalambrí",
+    "email": "hello@sergiodxa.com",
+    "url": "https://sergiodxa.com/"
   },
   "license": "MIT",
   "bugs": {

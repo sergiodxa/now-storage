@@ -1,6 +1,11 @@
-index.test.js
-.travis.yml
-examples
 errors
+examples
+.dockerignore
+.gitignore
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+Dockerfile
+index.test.js
+now.json
+renovate.json
+yarn.lock
